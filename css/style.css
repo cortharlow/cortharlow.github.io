@@ -4,14 +4,91 @@ html, body {
   background-color: #fcfcfc;
 }
 
+video#bgvid {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+}
+#harlow {
+  position: relative;
+  width: 41%;
+  margin-top: -40%;
+  margin-left: 52%;
+  z-index: 100;
+}
+#harlow h1 {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 400%;
+  text-align: left;
+  padding-left: 3%;
+  color: #fcfcfc;
+  margin-left: 15%;
+  background-color: rgba(0, 0, 0, 0.7);;
+}
+.portfolio {
+  position: relative;
+  background-color: #fcfcfc;
+  width: 100%;
+  height: 600px;
+  margin-top: 20%;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-size: 80%;
+  letter-spacing: 1.5px;
+  z-index: 99;
+}
+#title {
+  position: relative;
+  width: 70%;
+  padding-top: 0.4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#title h1 {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 160%;
+  letter-spacing: 2px;
+  line-height: 80px;
+  padding: 0;
+}
+.portfolio table {
+  position: relative;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border-top: 1px solid #eeeeee;
+}
+.portfolio td {
+  border-bottom: 1px solid #eeeeee;
+  height: 80px;
+}
+.portfolio tr:hover {
+  background-color: #eeeeee;
+}
+.portfolio h1 {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  letter-spacing: 0;
+  font-size: 160%;
+  padding-left: 1%;
+
+}
+
+
 /******** NAV & HEADER ********/
 header {
   font-family: 'Helvetica Neue';
   color: #222222;
+  background-color: #fcfcfc;
 }
 nav {
   width: 70%;
-  height: 80px;
+  height: 50px;
   margin: 0;
   margin-left: 15%;
   margin-right: 15%;
@@ -23,6 +100,7 @@ nav {
   font-weight: 600;
   font-size: 100%;
   letter-spacing: 2px;
+  margin-top: -0.38%;
   cursor: pointer;
 }
 #rightmost {
@@ -34,6 +112,7 @@ nav a {
 }
 nav ul {
   margin-left: auto;
+  margin-top: 1.2%;
   padding: 0;
 }
 nav li {
@@ -48,174 +127,14 @@ nav li:hover {
   text-decoration: line-through;
 }
 
-/******** TITLE ********/
-
-.title {
-  width: 67.9%;
-  height: 500px;
-  margin: 0;
-  margin-left: 15%;
-  margin-right: 15%;
-  border: 15px solid transparent;
-  -moz-border-image: -moz-linear-gradient(right, #0435FC 0%, #FF3854 100%);
-  -webkit-border-image: -webkit-linear-gradient(right, #0435FC 0%, #FF3854 100%);
-  border-image: linear-gradient(to left, #0435FC 0%, #FF3854 100%);
-  border-image-slice: 1;
-}
-.title h1 {
-  /*font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;*/
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 600%;
-  line-height: 100px;
-  text-align: left;
-  color: #222222;
-  margin: 0;
-  margin-left: 2%;
-}
-.top {
-  margin-top: 14%;
-}
-.intro {
-
-}
-.about {
-  margin-left: 2%;
-  margin-top: -4.5%;
-}
-.about h2 {
-  /*font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;*/
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 300%;
-  line-height: 95%;
-  margin-top: 1.1%;
-  margin-left: -3.5%;
-  text-align: center;
-  color: #222222;
-}
-span#close {
-  letter-spacing: -10px;
-}
-.about p {
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-weight: 400;
-  line-height: 135%;
-  font-size: 113%;
-  text-align: left;
-  color: #222222;
-  margin-top: -3%;
-  margin-right: 1%;
-}
-.about a {
-  text-decoration: none;
-  color: #222222;
-}
-#grid {
-  text-align: center;
-  width: 100%;
-  margin-top: 6.6%;
-  margin-left: -1%;
-}
-#grid img {
-  /*margin: 5px;*/
-  max-width: 24%;
-  display: inline;
-}
-#off {
-  display: none;
-}
-
-/******** PROJECTS ********/
-
-.media {
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-  width: 32.13%;
-  margin: 0;
-  margin-left: 0.4%;
-  margin-right: 0.4%;
-  margin-bottom: 1%;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-}
-.media__image {
-  display: block;
-}
-.media__body {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255,56,84,0.9),
-      rgba(4,53,252,0.9)
-      );
-  bottom: 0;
-  color: white;
-  font-size: 1em;
-  left: 0;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  right: 0;
-  width: 100.6%;
-  height:100%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.media__body:hover {
-  opacity: 1;
-}
-.media__body h1 {
-  font-weight: 600;
-  font-size: 200%;
-  margin-top: 35%;
-}
-.media__body h2 {
-  font-weight: 400;
-  line-height: 0%;
-  font-size: 100%;
-  margin-top: -2%;
-}
-.media__body p {
-  font-weight: 400;
-  font-size: 80%;
-  letter-spacing: 2px;
-  margin-top: 6%;
-}
-.portfolio {
-  line-height: 80px;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-weight: 400;
-  font-size: 80%;
-  letter-spacing: 2px;
-  margin-top: 0.25%;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-bottom: 1%;
-  border-bottom: 1px solid #eeeeee;
-}
-.work {
-  width: 70%;
-  margin: 0;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-bottom: 0.4%;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
-  border: 1px solid #eeeeee;
-}
-
 /******** FOOTER ********/
 footer {
   bottom: 0;
   width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-  border-top: 1px solid #eeeeee;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
 }
 footer a {
   text-decoration: none;
@@ -225,15 +144,12 @@ footer ul {
   list-style: none;
   display: inline-flex;
   margin-left: -3.5%;
-  margin-bottom: 5%;
-  margin-top: 0;
 }
 footer li {
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 400;
-  font-size: 80%;
+  font-size: 75%;
   letter-spacing: 2px;
-  margin-top: 10%;
   margin-right: 15px;
 }
 footer li:hover {
