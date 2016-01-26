@@ -18,8 +18,8 @@
       </nav>
     </header>
     <video autoplay loop muted id="bgvid">
-        <source src="VideoBK.webm" type="video/webm">
-        <source src="VideoBK.mp4" type="video/mp4">
+        <source src="WebsiteBG.webm" type="video/webm">
+        <source src="WebsiteBG.mp4" type="video/mp4">
     </video>
     <div id="harlow">
       <h1>Web Developer
@@ -30,27 +30,27 @@
         <h1>PORTFOLIO</h1>
       </div>
       <table>
-        <tr>
+        <tr id="rendezvous">
           <td><h1>Rendezvous</h1></td>
           <td>Ruby | Ruby on Rails | PostgreSQL | Bcrypt | Full Stack</td>
         </tr>
-        <tr>
+        <tr id="locker">
           <td><h1>Locker</h1></td>
           <td>MongoDB | Express | AngularJS | Node.js | JSON Web Token | Bcrypt | Full Stack</td>
         </tr>
-        <tr>
+        <tr id="extension">
           <td><h1>Locker Extension</h1></td>
           <td>Javascript Chrome Extension for Locker</td>
         </tr>
-        <tr>
+        <tr id="timeline">
           <td><h1>Timeline</h1></td>
           <td>MongoDB | Express | Node.js | Socket.io | Google Maps API | Full Stack</td>
         </tr>
-        <tr>
+        <tr id="christmas">
           <td><h1>My Christmas List</h1></td>
           <td>Ruby | Ruby on Rails | PostgreSQL | Bcrypt | Full Stack</td>
         </tr>
-        <tr>
+        <tr id="burrito">
           <td><h1>Burrito Challenge</h1></td>
           <td>JavaScript | jQuery | Front End Web Game</td>
         </tr>
@@ -64,5 +64,27 @@
         <li><a href="https://github.com/cortharlow">GITHUB</a></li>
       </ul>
     </footer>
+    <script>
+      $(document).ready(function() {
+        $("#rendezvous").click(function() {
+          window.open("https://github.com/cortharlow/rendezvous/blob/master/readme.md", "_blank");
+        })
+        $("#locker").click(function() {
+          window.open("https://github.com/cortharlow/locker/blob/master/README.md", "_blank");
+        })
+        $("#extension").click(function() {
+          window.open("https://chrome.google.com/webstore/detail/locker-extension/echcameeafciikhiedhllacbfkoialdp", "_blank");
+        })
+        $("#timeline").click(function() {
+          window.open("https://github.com/cortharlow/timeline/blob/master/README.md", "_blank");
+        })
+        $("#christmas").click(function() {
+          window.open("https://github.com/cortharlow/christmas_list/blob/master/README.md", "_blank");
+        })
+        $("#burrito").click(function() {
+          window.open("https://github.com/cortharlow/Burrito_Challenge/blob/master/README.md", "_blank");
+        })
+      });
+    </script>
   </body>
 </html>

@@ -70,6 +70,7 @@ video#bgvid {
 }
 .portfolio tr:hover {
   background-color: #eeeeee;
+  cursor: pointer;
 }
 .portfolio h1 {
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
