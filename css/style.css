@@ -151,6 +151,24 @@ footer li:hover {
     width: 96%;
     margin: 1% 2%;
     padding: 0;
+    display: block;
+  }
+  #name {
+    text-align: center;
+    font-size: 150%;
+  }
+  nav ul {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #rightmost {
+    margin: 0;
+  }
+  nav li {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
   }
   #harlow {
     width: 96%;
@@ -175,10 +193,6 @@ footer li:hover {
   #title h1 {
     margin-bottom: 0;
   }
-  .portfolio #left {
-    /*padding-left: 10px;*/
-    /*width: 75%;*/
-  }
   footer {
     width: 96%;
     padding: 0;
@@ -189,7 +203,9 @@ footer li:hover {
     list-style: none;
     display: block;
     padding: 0 0 0 2px;
-    /*margin-left: -3.5%;*/
+  }
+  footer li {
+    margin: 10px 0;
   }
 }
 
