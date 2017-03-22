@@ -171,6 +171,7 @@ footer li:hover {
     padding: 0;
     margin: 6% 2%;
     margin-bottom: 16px;
+    font-weight: 400;
     color: #000000;
   }
   .portfolio {
@@ -193,7 +194,7 @@ footer li:hover {
   footer {
     width: 96%;
     padding: 0;
-    margin: 1% 2%;
+    margin: 1% 2% 6%;
   }
   footer ul {
     text-align: center;
