@@ -171,6 +171,8 @@ footer li:hover {
     padding: 0;
     margin: 6% 2%;
     margin-bottom: 16px;
+  }
+  #harlow p {
     font-weight: 400;
     color: #000000;
   }
