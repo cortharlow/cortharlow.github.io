@@ -17,55 +17,67 @@
         </ul>
       </nav>
     </header>
-    <video autoplay loop muted id="bgvid">
-        <source src="WebsiteBG.webm" type="video/webm">
-        <source src="WebsiteBG.mp4" type="video/mp4">
-    </video>
-    <div id="harlow">
-      <h1>Web Developer
-      <br>UX Enthusiast</h1>
+    <div id="harlow" class="animated fadeIn delay">
+      <p><span>//</span> Web Developer at <a href="http://www.digidaymedia.com/">Digiday Media</a></p>
+      <p><span>//</span> Proud Ohioan, Current Brooklynite</p>
+      <p><span>//</span> High Speed Rail Advocate</p>
+      <p><span>//</span> User Experience Enthusiast</p>
     </div>
     <div class="portfolio">
-      <div id="title">
+      <div id="title" class="animated fadeInLeft delayOne">
         <h1>PORTFOLIO</h1>
       </div>
-      <table>
+      <table class="animated fadeInRight delayTwo">
+        <tr id="glossy">
+          <td><h1>Glossy</h1></td>
+          <td id="left">Uncoupled CMS <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> SASS <span>//</span> Architect & Primary Dev <span>//</span> Digiday Media</td>
+        </tr>
+        <tr id="tearsheet">
+          <td><h1>Tearsheet</h1></td>
+          <td id="left">Uncoupled CMS <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> SASS <span>//</span> Architect & Primary Dev <span>//</span> Digiday Media</td>
+        </tr>
         <tr id="rendezvous">
           <td><h1>Rendezvous</h1></td>
-          <td>Ruby | Ruby on Rails | PostgreSQL | Bcrypt | Full Stack</td>
+          <td id="left">Ruby <span>//</span> Ruby on Rails <span>//</span> PostgreSQL <span>//</span> Bcrypt <span>//</span> Personal Project</td>
         </tr>
         <tr id="locker">
           <td><h1>Locker</h1></td>
-          <td>MongoDB | Express | AngularJS | Node.js | JSON Web Token | Bcrypt | Full Stack</td>
+          <td id="left">MongoDB <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> JSON Web Token <span>//</span> Bcrypt <span>//</span> Personal Project</td>
         </tr>
         <tr id="extension">
           <td><h1>Locker Extension</h1></td>
-          <td>Javascript Chrome Extension for Locker</td>
+          <td id="left">JavaScript Chrome Extension for Locker</td>
         </tr>
         <tr id="timeline">
           <td><h1>Timeline</h1></td>
-          <td>MongoDB | Express | Node.js | Socket.io | Google Maps API | Full Stack</td>
+          <td id="left">MongoDB <span>//</span> Express <span>//</span> Node.js <span>//</span> Socket.io <span>//</span> Google Maps API <span>//</span> Team Project</td>
         </tr>
         <tr id="christmas">
           <td><h1>My Christmas List</h1></td>
-          <td>Ruby | Ruby on Rails | PostgreSQL | Bcrypt | Full Stack</td>
+          <td id="left">Ruby <span>//</span> Ruby on Rails <span>//</span> PostgreSQL <span>//</span> Bcrypt <span>//</span> Personal Project</td>
         </tr>
         <tr id="burrito">
           <td><h1>Burrito Challenge</h1></td>
-          <td>JavaScript | jQuery | Front End Web Game</td>
+          <td id="left">JavaScript <span>//</span> jQuery <span>//</span> Front End Web Game <span>//</span> Personal Project</td>
         </tr>
       </table>
     </div>
-    <footer>
+    <footer class="animated fadeIn delayThree">
       <ul>
-        <li><a href="https://twitter.com/cortharlow">TWITTER</a></li>
-        <li><a href="https://www.instagram.com/cortharlow/">INSTAGRAM</a></li>
-        <li><a href="https://www.linkedin.com/in/cortharlow">LINKEDIN</a></li>
-        <li><a href="https://github.com/cortharlow">GITHUB</a></li>
+        <li><a target="_blank" href="https://twitter.com/cortharlow">TWITTER</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/cortharlow/">INSTAGRAM</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/cortharlow">LINKEDIN</a></li>
+        <li><a target="_blank" href="https://github.com/cortharlow">GITHUB</a></li>
       </ul>
     </footer>
     <script>
       $(document).ready(function() {
+        $("#glossy").click(function() {
+          window.open("http://www.glossy.co", "_blank");
+        })
+        $("#tearsheet").click(function() {
+          window.open("http://www.tearsheet.co", "_blank");
+        })
         $("#rendezvous").click(function() {
           window.open("https://github.com/cortharlow/rendezvous/blob/master/readme.md", "_blank");
         })
