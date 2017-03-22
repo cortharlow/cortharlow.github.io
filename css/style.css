@@ -94,6 +94,9 @@ nav {
   margin-top: -0.38%;
   cursor: pointer;
 }
+#mobile {
+  display: none;
+}
 #rightmost {
    margin-right: -15px;
 }
@@ -159,15 +162,14 @@ footer li:hover {
   nav li {
     margin: 0;
   }
-  #rightmost::before {
-    content: " //  ";
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  #mobile {
+    display: inline;
+    margin: 0 5px;
   }
   #harlow {
     width: 96%;
     padding: 0;
-    margin: 1% 2%;
+    margin: 6% 2%;
     margin-bottom: 16px;
   }
   .portfolio {
