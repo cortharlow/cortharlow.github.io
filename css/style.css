@@ -148,28 +148,48 @@ footer li:hover {
 
 @media screen and (max-width: 700px) {
   nav {
-    width: 92%;
-    margin: 0 auto;
+    width: 96%;
+    margin: 1% 2%;
+    padding: 0;
   }
   #harlow {
-    width: 92%;
+    width: 96%;
+    padding: 0;
+    margin: 1% 2%;
     margin-bottom: 16px;
   }
   .portfolio {
-    /*background-color: red;*/
-    width: 92%;
+    width: 96%;
+    padding: 0;
+    margin: 1% 2%;
   }
   .portfolio h1 {
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     letter-spacing: 0;
-    font-size: 160%;
+    font-size: 120%;
     padding-left: 1%;
+  }
+  .portfolio table {
+    width: 80%;
   }
   #title h1 {
     margin-bottom: 0;
   }
   .portfolio #left {
-    padding-left: 10px;
+    /*padding-left: 10px;*/
+    /*width: 75%;*/
+  }
+  footer {
+    width: 96%;
+    padding: 0;
+    margin: 1% 2%;
+  }
+  footer ul {
+    text-align: center;
+    list-style: none;
+    display: block;
+    padding: 0 0 0 2px;
+    /*margin-left: -3.5%;*/
   }
 }
 
