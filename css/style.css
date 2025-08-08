@@ -47,6 +47,9 @@ span {
   padding: 0;
   margin-top: 0;
 }
+.portfolio img {
+  width: 100%;
+}
 .portfolio table {
   border-collapse: collapse;
   border-top: 1px solid #eeeeee;
@@ -70,12 +73,28 @@ span {
   font-weight: 300;
 }
 
+.content {
+  margin-bottom: 120px;
+  letter-spacing: none;
+}
+
+.content h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
 
 /******** NAV & HEADER ********/
 header {
   font-family: 'Helvetica Neue';
   color: #222222;
   background-color: #fcfcfc;
+  margin-top: 60px;
 }
 nav {
   width: 70%;
@@ -91,7 +110,6 @@ nav {
   font-weight: 600;
   font-size: 100%;
   letter-spacing: 2px;
-  margin-top: -0.38%;
   cursor: pointer;
 }
 #mobile {
@@ -188,6 +206,9 @@ footer li:hover {
     padding-left: 1%;
   }
   .portfolio table {
+    width: 100%;
+  }
+  .portfolio {
     width: 100%;
   }
   #title h1 {
