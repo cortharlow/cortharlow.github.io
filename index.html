@@ -27,7 +27,12 @@
       html {
         height: 100%;
         overflow: hidden;
+        /* Safari tints both bars from the root canvas: the gradient puts
+           navy under the status bar; past the page box (behind the bottom
+           toolbar) the canvas falls back to the pink background-color. */
         background-color: #de8f94;
+        background-image: var(--sunrise);
+        background-repeat: no-repeat;
         overscroll-behavior: none;
       }
       body {
