@@ -44,6 +44,20 @@
         background-image: var(--sunrise);
         -webkit-font-smoothing: antialiased;
       }
+      /* Real navy pixels under the iOS status bar, so its translucent
+         blur picks up the sky instead of the canvas fallback color.
+         Zero-height everywhere without a top safe-area inset. */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: env(safe-area-inset-top);
+        background: #131f3c;
+        z-index: 1;
+        pointer-events: none;
+      }
       /* Paper grain, painted over everything including the name */
       body::after {
         content: "";
