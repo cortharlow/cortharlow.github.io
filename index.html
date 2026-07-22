@@ -44,24 +44,27 @@
         background-image: var(--sunrise);
         -webkit-font-smoothing: antialiased;
       }
-      /* Real navy pixels under the iOS status bar, so its translucent
-         blur picks up the sky instead of the canvas fallback color.
-         Zero-height everywhere without a top safe-area inset. */
+      /* The sky, viewport-locked. The whole composition renders in fixed
+         layers so the document height underneath is free to be "long"
+         for Safari's benefit without anything visually moving. */
       body::before {
         content: "";
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: env(safe-area-inset-top);
-        background: #131f3c;
-        z-index: 1;
-        pointer-events: none;
+        inset: 0;
+        background-image: var(--sunrise);
+        z-index: 0;
+      }
+      /* On touch devices, give the document real scrollable height so
+         Safari treats it as a long page and composites its bars over
+         actual sky pixels instead of the flat canvas color. */
+      @media (hover: none) and (pointer: coarse) {
+        html { overflow: auto; }
+        body { height: 140lvh; }
       }
       /* Paper grain, painted over everything including the name */
       body::after {
         content: "";
-        position: absolute;
+        position: fixed;
         inset: 0;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
         mix-blend-mode: overlay;
@@ -75,7 +78,7 @@
          offset dark/light copies read, as pressed-in relief: dark edge
          up-left, light spill down-right. */
       h1 {
-        position: absolute;
+        position: fixed;
         inset: 0;
         z-index: 1;
         font-family: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", "Times New Roman", serif;
@@ -137,7 +140,7 @@
         }
       }
       nav {
-        position: absolute;
+        position: fixed;
         top: calc(2.25rem + env(safe-area-inset-top));
         right: 2.5rem;
         z-index: 3;
