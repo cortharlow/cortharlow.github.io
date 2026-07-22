@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#131f3c">
     <title>Cort Harlow</title>
     <meta name="description" content="Cort Harlow — Head of Product Engineering &amp; Design">
     <link rel="shortcut icon" href="favicon-32.png">
@@ -23,11 +24,17 @@
           #de8f94 100%
         );
       }
-      html { height: 100%; overflow: hidden; }
+      html {
+        height: 100%;
+        overflow: hidden;
+        background-color: #131f3c;
+        overscroll-behavior: none;
+      }
       body {
         position: relative;
         height: 100vh;
         height: 100svh;
+        height: 100dvh;
         overflow: hidden;
         background-image: var(--sunrise);
         -webkit-font-smoothing: antialiased;
@@ -66,7 +73,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: flex-start;
-        padding: 3rem 2.5rem;
+        padding: 3rem 2.5rem calc(3rem + env(safe-area-inset-bottom));
         white-space: nowrap;
       }
       h1 .fill {
@@ -106,13 +113,13 @@
         h1::after {
           white-space: normal;
           overflow-wrap: normal;
-          padding: 3rem 1.25rem;
+          padding: calc(3rem + env(safe-area-inset-top)) 1.25rem 3rem;
           align-items: flex-start;
         }
       }
       nav {
         position: absolute;
-        top: 2.25rem;
+        top: calc(2.25rem + env(safe-area-inset-top));
         right: 2.5rem;
         z-index: 3;
         font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -138,7 +145,7 @@
         h1::after { color: rgba(255, 253, 248, 0.12); }
         nav {
           top: auto;
-          bottom: 2.25rem;
+          bottom: calc(2.25rem + env(safe-area-inset-bottom));
           right: 1.25rem;
         }
       }
