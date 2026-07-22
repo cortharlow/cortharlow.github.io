@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#131f3c">
+    <meta name="theme-color" content="#cfccc4">
     <title>Cort Harlow</title>
     <meta name="description" content="Cort Harlow — Head of Product Engineering &amp; Design">
     <link rel="shortcut icon" href="favicon-32.png">
@@ -24,15 +24,14 @@
           #de8f94 100%
         );
       }
+      /* Safari paints its top and bottom bars with the canvas color, one
+         color for both. Rather than fight it, use the pale warm grey of
+         the newsprint border that frames Shibuya's paintings — the bars
+         become the mat around the sky. */
       html {
         height: 100%;
         overflow: hidden;
-        /* Safari tints both bars from the root canvas: the gradient puts
-           navy under the status bar; past the page box (behind the bottom
-           toolbar) the canvas falls back to the pink background-color. */
-        background-color: #de8f94;
-        background-image: var(--sunrise);
-        background-repeat: no-repeat;
+        background-color: #cfccc4;
         overscroll-behavior: none;
       }
       body {
@@ -53,21 +52,6 @@
         inset: 0;
         background-image: var(--sunrise);
         z-index: 0;
-      }
-      /* On touch devices, give the document real height so Safari treats
-         it as a long page and composites its bars over actual sky pixels
-         instead of the flat canvas color — but block pan gestures so the
-         scroll position (and therefore the bar sampling) never moves.
-         Pinch-zoom stays available. */
-      @media (hover: none) and (pointer: coarse) {
-        html {
-          overflow: auto;
-          touch-action: pinch-zoom;
-        }
-        body {
-          height: 140lvh;
-          touch-action: pinch-zoom;
-        }
       }
       /* Paper grain, painted over everything including the name */
       body::after {
