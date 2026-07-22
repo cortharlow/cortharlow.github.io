@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#cfccc4">
+    <meta name="theme-color" content="#131f3c">
     <title>Cort Harlow</title>
     <meta name="description" content="Cort Harlow — Head of Product Engineering &amp; Design">
     <link rel="shortcut icon" href="favicon-32.png">
@@ -23,15 +23,14 @@
           #e39a9c 94%,
           #de8f94 100%
         );
+        /* Height of the solid-color extensions above and below the sky
+           on touch devices (see the cap elements below). */
+        --ext: 25svh;
       }
-      /* Safari paints its top and bottom bars with the canvas color, one
-         color for both. Rather than fight it, use the pale warm grey of
-         the newsprint border that frames Shibuya's paintings — the bars
-         become the mat around the sky. */
       html {
         height: 100%;
         overflow: hidden;
-        background-color: #cfccc4;
+        background-color: #131f3c;
         overscroll-behavior: none;
       }
       body {
@@ -39,24 +38,24 @@
         height: 100vh;
         height: 100svh;
         height: 100dvh;
-        overflow: hidden;
-        background-image: var(--sunrise);
         -webkit-font-smoothing: antialiased;
       }
-      /* The sky, viewport-locked. The whole composition renders in fixed
-         layers so the document height underneath is free to be "long"
-         for Safari's benefit without anything visually moving. */
-      body::before {
-        content: "";
-        position: fixed;
+      /* The sky. On desktop it fills the locked viewport exactly; on
+         touch devices it sits between the two caps. */
+      main {
+        position: absolute;
         inset: 0;
         background-image: var(--sunrise);
-        z-index: 0;
       }
+      /* Solid-color document extensions: real content above and below
+         the viewport, so whatever Safari samples behind its bars — at
+         rest or mid-scroll — is navy at the top and pink at the bottom.
+         Hidden on desktop. */
+      .cap { display: none; }
       /* Paper grain, painted over everything including the name */
       body::after {
         content: "";
-        position: fixed;
+        position: absolute;
         inset: 0;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
         mix-blend-mode: overlay;
@@ -64,13 +63,36 @@
         pointer-events: none;
         z-index: 2;
       }
-      /* Blind imprint. The fill layer spans the full viewport, so its
-         gradient is sized to the element itself and always matches the
-         body background — no fixed attachment, works on iOS. Only the
+      /* Touch devices: extend the document by a cap above and below the
+         sky, and let it scroll. A script centers the load position on
+         the sky, per the page/viewport diagram this layout implements. */
+      @media (hover: none) and (pointer: coarse) {
+        html { overflow: auto; }
+        body { height: calc(100svh + 2 * var(--ext)); }
+        main { inset: var(--ext) 0; }
+        .cap {
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+        }
+        #cap-top {
+          top: 0;
+          height: calc(var(--ext) + 1px);
+          background: #131f3c;
+        }
+        #cap-bottom {
+          bottom: 0;
+          height: calc(var(--ext) + 1px);
+          background: #de8f94;
+        }
+      }
+      /* Blind imprint. The fill layer spans the sky exactly, so its
+         gradient always matches the background behind it — only the
          offset dark/light copies read, as pressed-in relief: dark edge
          up-left, light spill down-right. */
       h1 {
-        position: fixed;
+        position: absolute;
         inset: 0;
         z-index: 1;
         font-family: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", "Times New Roman", serif;
@@ -132,7 +154,7 @@
         }
       }
       nav {
-        position: fixed;
+        position: absolute;
         top: calc(2.25rem + env(safe-area-inset-top));
         right: 2.5rem;
         z-index: 3;
@@ -166,9 +188,27 @@
     </style>
   </head>
   <body>
-    <nav>
-      <a href="https://www.linkedin.com/in/cortharlow" target="_blank" rel="noopener">LinkedIn</a><span>&middot;</span><a href="mailto:cortharlow@gmail.com">Email</a>
-    </nav>
-    <h1 data-text="Cort Harlow"><span class="fill">Cort Harlow</span></h1>
+    <div class="cap" id="cap-top"></div>
+    <main>
+      <nav>
+        <a href="https://www.linkedin.com/in/cortharlow" target="_blank" rel="noopener">LinkedIn</a><span>&middot;</span><a href="mailto:cortharlow@gmail.com">Email</a>
+      </nav>
+      <h1 data-text="Cort Harlow"><span class="fill">Cort Harlow</span></h1>
+    </main>
+    <div class="cap" id="cap-bottom"></div>
+    <script>
+      // Load into the vertical middle: align the viewport with the sky,
+      // leaving the caps above and below for Safari's bars to sample.
+      if (matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var center = function () {
+          window.scrollTo(0, document.querySelector('main').offsetTop);
+        };
+        center();
+        window.addEventListener('orientationchange', function () {
+          setTimeout(center, 250);
+        });
+      }
+    </script>
   </body>
 </html>
