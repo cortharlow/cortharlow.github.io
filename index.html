@@ -1,157 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cort Harlow</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Cort Harlow — Head of Product Engineering &amp; Design">
     <link rel="shortcut icon" href="favicon-32.png">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --sunrise: linear-gradient(
+          180deg,
+          #131f3c 0%,
+          #1a3567 14%,
+          #21518f 28%,
+          #2f74b3 42%,
+          #5ba4c9 54%,
+          #a9cdd6 65%,
+          #e3ddd4 75%,
+          #ecc3b6 85%,
+          #e39a9c 94%,
+          #de8f94 100%
+        );
+      }
+      html { height: 100%; overflow: hidden; }
+      body {
+        position: relative;
+        height: 100vh;
+        height: 100svh;
+        overflow: hidden;
+        background-image: var(--sunrise);
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Paper grain, painted over everything including the name */
+      body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 2;
+      }
+      /* Blind imprint. The fill layer spans the full viewport, so its
+         gradient is sized to the element itself and always matches the
+         body background — no fixed attachment, works on iOS. Only the
+         offset dark/light copies read, as pressed-in relief: dark edge
+         up-left, light spill down-right. */
+      h1 {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        font-family: Didot, "Bodoni MT", "Bodoni 72", "Playfair Display", "Times New Roman", serif;
+        font-size: min(15rem, 17vw, calc((100vw - 5rem) / 5.6));
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 0.95;
+      }
+      h1 .fill,
+      h1::before,
+      h1::after {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 3rem 2.5rem;
+        white-space: nowrap;
+      }
+      h1 .fill {
+        z-index: 1;
+        background-image: var(--sunrise);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      h1::before,
+      h1::after {
+        content: attr(data-text);
+        z-index: 0;
+      }
+      h1::before {
+        color: rgba(59, 38, 44, 0.26);
+        transform: translate(-1px, -1.5px);
+        filter: blur(0.75px);
+      }
+      h1::after {
+        color: rgba(255, 253, 248, 0.4);
+        transform: translate(1px, 1.5px);
+        filter: blur(0.5px);
+      }
+      nav {
+        position: absolute;
+        top: 2.25rem;
+        right: 2.5rem;
+        z-index: 3;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(245, 239, 232, 0.85);
+      }
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      nav a:hover, nav a:focus-visible { color: #ffffff; }
+      nav span { margin: 0 0.85rem; opacity: 0.5; user-select: none; }
+    </style>
   </head>
   <body>
-    <header class="animated fadeInUp">
-      <nav>
-        <div id="name">CORT HARLOW</div>
-        <ul>
-          <li><a href="mailto:cortharlow@gmail.com">CONTACT</a></li>
-          <li id="mobile"><span>//</span></li>
-          <li id="rightmost"><a target="_blank" href="cort_harlow_resume.pdf">RESUME</a><li>
-        </ul>
-      </nav>
-    </header>
-    <div id="harlow" class="animated fadeIn delay">
-      <p><span>//</span> Senior Frontend Engineer</p>
-      <p><span>//</span> User Experience Expert</p>
-      <p><span>//</span> 10 Years of Experience</p>
-
-    </div>
-    <div class="portfolio">
-      <div id="title" class="animated fadeInLeft delayOne">
-        <h1>RECENT WORK</h1>
-        <section class="content">
-          <p>Most recently, I have worked at FindMine, a generative AI startup that works with major retail-brand companies like Gap, Old Navy, Banana Republic, Lululemon, Anine Bing, and others, to show customers how to wear products via its "Complete the Look" technology.</p>
-          <p>I was the fourth engineer hired and the most tenured employee, after the CEO, with significant domain expertise and complete ownership of the frontend stack.</p>
-          <p>I started as a Software Engineer, but was promoted to Lead Frontend Engineer for the past four years. The following projects represent the most recent initiatives I led, including a rebuilding of FindMine's flagship internal and client-facing tool in React, plus other key projects focused on the company's client-embedded JavaScript Web Component widgets.</p>
-
-          <h4>FindMine's Flagship Internal and Client-facing Tool</h4>
-          <div class="content animated fadeInRight delayTwo">
-            <img src="https://cdn.allthepics.net/images/2025/08/08/products.png">
-            <p>Products</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/categories.png">
-            <p>Products with active filters in the left navigation</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/product_modal.png">
-            <p>Product modal</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/category_tree.png">
-            <p>Product modal with category tree expanded</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/product_modal_dropdown.png">
-            <p>Product modal with a simple facet dropdown expanded</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/product_modal_actions.png">
-            <p>Product modal with action button expanded</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/looks.png">
-            <p>Looks</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/looks_pinned.png">
-            <p>View that automatically filters for "pinned" looks, seen with the active selection in the header</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/canvas.png">
-            <p>The looks Canvas, and overlay view used to create and edit looks that includes drag-and-drop functionality and comprehensive item filters</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/Screenshot-2025-08-01-at-15.11.09.png">
-            <p>Editing a published look within the Canvas</p>
-            
-            <h4>Client-embedded JavaScript Widgets</h4>
-            <p>These widgets power over 1B view annually, collected via analytics calls that are triggered when the widget comes into view on a user's screen</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/ab_widget.png">
-            <p>The items and looks created in the above tool are served to the client-embedded JavaScript widgets on their product pages via the Complete the Look API; this is an example of a widget on Anine Bing's website</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/ab_widget_2.png">
-            <p>This the same Anine Bing widget, but highlights the slide-up Quick Add UI that allows users to add products to their cart directly from the widget. Enabling flexibility and extensibility for client customization is a crucial component of this application.</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/editor.png">
-            
-            <h4>The Widget Editor</h4>
-            <p>The internal flagship tool discussed above also contains a new Widget Editor UI that allows non-technical users to create, edit, and configure these same client-embedded widgets</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/editor_2.png">
-            <p>They include a variety of configurations including the general layout, font details, pagination, and other widget behaviors</p>
-            <img src="https://cdn.allthepics.net/images/2025/08/08/editor_mobile.png">
-            <p>Users can configure specific breakpoints and different UIs depending on the screensize; this shows the editor while making changes to a mobile layout</p>
-          </div>
-        </section>
-      </div>
-      <hr />
-      <div id="title" class="animated fadeInLeft delayOne">
-        <h1>PREVIOUS WORK</h1>
-      </div>
-      <table class="animated fadeInRight delayTwo">
-        <tr id="mysunbuddy">
-          <td><h1>MySunBuddy</h1></td>
-          <td id="left">Angular <span>//</span> HTML <span>//</span> CSS   <span>//</span> Freelance Project</td>
-        </tr>
-        <tr id="glossy">
-          <td><h1>Glossy</h1></td>
-          <td id="left">Uncoupled CMS <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> SASS <span>//</span> Architect & Primary Dev <span>//</span> Digiday Media</td>
-        </tr>
-        <tr id="tearsheet">
-          <td><h1>Tearsheet</h1></td>
-          <td id="left">Uncoupled CMS <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> SASS <span>//</span> Architect & Primary Dev <span>//</span> Digiday Media</td>
-        </tr>
-        <tr id="rendezvous">
-          <td><h1>Rendezvous</h1></td>
-          <td id="left">Ruby <span>//</span> Ruby on Rails <span>//</span> PostgreSQL <span>//</span> Bcrypt <span>//</span> Personal Project</td>
-        </tr>
-        <tr id="locker">
-          <td><h1>Locker</h1></td>
-          <td id="left">MongoDB <span>//</span> Express <span>//</span> AngularJS <span>//</span> Node.js <span>//</span> JSON Web Token <span>//</span> Bcrypt <span>//</span> Personal Project</td>
-        </tr>
-        <tr id="extension">
-          <td><h1>Locker Extension</h1></td>
-          <td id="left">JavaScript Chrome Extension for Locker</td>
-        </tr>
-        <tr id="timeline">
-          <td><h1>Timeline</h1></td>
-          <td id="left">MongoDB <span>//</span> Express <span>//</span> Node.js <span>//</span> Socket.io <span>//</span> Google Maps API <span>//</span> Team Project</td>
-        </tr>
-        <tr id="christmas">
-          <td><h1>My Christmas List</h1></td>
-          <td id="left">Ruby <span>//</span> Ruby on Rails <span>//</span> PostgreSQL <span>//</span> Bcrypt <span>//</span> Personal Project</td>
-        </tr>
-        <tr id="burrito">
-          <td><h1>Burrito Challenge</h1></td>
-          <td id="left">JavaScript <span>//</span> jQuery <span>//</span> Front End Web Game <span>//</span> Personal Project</td>
-        </tr>
-      </table>
-    </div>
-    <footer class="animated fadeIn delayThree">
-      <ul>
-        <li><a target="_blank" href="https://www.linkedin.com/in/cortharlow">LINKEDIN</a></li>
-        <li><a target="_blank" href="https://github.com/cortharlow">GITHUB</a></li>
-      </ul>
-    </footer>
-    <script>
-      $(document).ready(function() {
-        $("#mysunbuddy").click(function() {
-          window.open("https://www.mysunbuddy.com/#/Landing", "_blank");
-        })
-        $("#glossy").click(function() {
-          window.open("http://www.glossy.co", "_blank");
-        })
-        $("#tearsheet").click(function() {
-          window.open("http://www.tearsheet.co", "_blank");
-        })
-        $("#rendezvous").click(function() {
-          window.open("https://github.com/cortharlow/rendezvous/blob/master/readme.md", "_blank");
-        })
-        $("#locker").click(function() {
-          window.open("https://github.com/cortharlow/locker/blob/master/README.md", "_blank");
-        })
-        $("#extension").click(function() {
-          window.open("https://chrome.google.com/webstore/detail/locker-extension/echcameeafciikhiedhllacbfkoialdp", "_blank");
-        })
-        $("#timeline").click(function() {
-          window.open("https://github.com/cortharlow/timeline/blob/master/README.md", "_blank");
-        })
-        $("#christmas").click(function() {
-          window.open("https://github.com/cortharlow/christmas_list/blob/master/README.md", "_blank");
-        })
-        $("#burrito").click(function() {
-          window.open("https://github.com/cortharlow/Burrito_Challenge/blob/master/README.md", "_blank");
-        })
-      });
-    </script>
+    <nav>
+      <a href="https://www.linkedin.com/in/cortharlow" target="_blank" rel="noopener">LinkedIn</a><span>&middot;</span><a href="mailto:cortharlow@gmail.com">Email</a>
+    </nav>
+    <h1 data-text="Cort Harlow"><span class="fill">Cort Harlow</span></h1>
   </body>
 </html>
