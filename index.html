@@ -54,12 +54,20 @@
         background-image: var(--sunrise);
         z-index: 0;
       }
-      /* On touch devices, give the document real scrollable height so
-         Safari treats it as a long page and composites its bars over
-         actual sky pixels instead of the flat canvas color. */
+      /* On touch devices, give the document real height so Safari treats
+         it as a long page and composites its bars over actual sky pixels
+         instead of the flat canvas color — but block pan gestures so the
+         scroll position (and therefore the bar sampling) never moves.
+         Pinch-zoom stays available. */
       @media (hover: none) and (pointer: coarse) {
-        html { overflow: auto; }
-        body { height: 140lvh; }
+        html {
+          overflow: auto;
+          touch-action: pinch-zoom;
+        }
+        body {
+          height: 140lvh;
+          touch-action: pinch-zoom;
+        }
       }
       /* Paper grain, painted over everything including the name */
       body::after {
